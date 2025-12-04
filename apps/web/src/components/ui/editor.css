@@ -1,0 +1,27 @@
+.ProseMirror {
+	outline: none;
+	min-height: 100px;
+	background: transparent;
+	color: inherit;
+}
+
+.ProseMirror:focus {
+	outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+	color: #aaa;
+	content: attr(data-placeholder);
+	float: left;
+	height: 0;
+	pointer-events: none;
+}
+
+.ProseMirror img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	display: block;
+	border-radius: 0.5rem;
+	margin: 0.5rem 0;
+}
