@@ -1,13 +1,13 @@
-import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-
 import * as TanStackQueryProvider from "./integrations/tanstack-query/root-provider.tsx";
-
+// Import translations
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen.ts";
 
 import "./styles.css";
+import { I18nProvider } from "./locales/I18nProvider";
 
 // Create a new router instance
 const router = createRouter({
@@ -35,9 +35,11 @@ if (rootElement && !rootElement.innerHTML) {
 
 	root.render(
 		<StrictMode>
-			<TanStackQueryProvider.Provider queryClient={queryClient}>
-				<RouterProvider router={router} />
-			</TanStackQueryProvider.Provider>
+			<I18nProvider>
+				<TanStackQueryProvider.Provider queryClient={queryClient}>
+					<RouterProvider router={router} />
+				</TanStackQueryProvider.Provider>
+			</I18nProvider>
 		</StrictMode>,
 	);
 }

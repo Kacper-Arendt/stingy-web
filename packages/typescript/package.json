@@ -1,0 +1,16 @@
+{
+  "name": "@repo/typescript",
+  "version": "0.0.1",
+  "description": "Shared Typescript configuration for @stingy-web",
+  "exports": {
+    "./base-tsconfig.json": "./base-tsconfig.json",
+    "./react-tsconfig.json": "./react-tsconfig.json"
+  },
+  "files": [
+    "base-tsconfig.json",
+    "react-tsconfig.json"
+  ],
+  "devDependencies": {
+    "@types/node": "catalog:"
+  }
+}
