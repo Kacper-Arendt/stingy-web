@@ -1,0 +1,140 @@
+.Button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 2.5rem;
+  padding: 0 var(--spacing-sm);
+  font-size: var(--font-size-md);
+
+  margin: 0;
+  outline: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--border-radius-sm);
+  font-family: inherit;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  user-select: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border);
+  color: var(--color-text-default);
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled]) {
+      background-color: var(--color-bg-default);
+      border-color: var(--color-text-light);
+    }
+  }
+
+  &:active:not([data-disabled]) {
+    background-color: var(--color-border);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-default);
+    outline-offset: 2px;
+  }
+
+  &[data-disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    color: var(--color-text-light);
+  }
+}
+
+.ButtonPrimary {
+  background-color: var(--color-primary-default);
+  border-color: var(--color-primary-default);
+  color: var(--color-bg-default); /* Biały tekst (odwrotny do ciemnego tła) */
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled]) {
+      background-color: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
+    }
+  }
+
+  &:active:not([data-disabled]) {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    box-shadow: none;
+  }
+}
+
+.ButtonDanger {
+  background-color: var(--color-error-text); /* Ciemny, nasycony kolor błędu */
+  border-color: var(--color-error-text);
+  color: var(--color-bg-default); /* Biały/jasny tekst */
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled]) {
+      background-color: oklch(
+        35% var(--semantic-chroma-oklch) var(--error-hue-oklch)
+      ); /* Nieco ciemniejszy */
+      border-color: oklch(
+        35% var(--semantic-chroma-oklch) var(--error-hue-oklch)
+      );
+    }
+  }
+
+  &:active:not([data-disabled]) {
+    background-color: oklch(
+      30% var(--semantic-chroma-oklch) var(--error-hue-oklch)
+    );
+    border-color: oklch(
+      30% var(--semantic-chroma-oklch) var(--error-hue-oklch)
+    );
+    box-shadow: none;
+  }
+}
+
+.ButtonOutline {
+  background-color: transparent;
+  border-color: var(--color-primary-default);
+  color: var(--color-primary-default);
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled]) {
+      background-color: var(--color-bg-secondary); /* Lekkie podświetlenie */
+    }
+  }
+
+  &:active:not([data-disabled]) {
+    background-color: var(--color-border);
+  }
+}
+
+.ButtonGhost {
+  background-color: transparent;
+  border-color: transparent; /* Brak widocznego obramowania */
+  color: var(--color-primary-default); /* Tekst primary */
+  padding: 0 var(--spacing-xxs); /* Mniejsze paddingi */
+
+  @media (hover: hover) {
+    &:hover:not([data-disabled]) {
+      background-color: var(--color-bg-secondary); /* Lekkie podświetlenie */
+      border-color: transparent;
+    }
+  }
+
+  &:active:not([data-disabled]) {
+    background-color: var(--color-border);
+  }
+}
+
+.ButtonSm {
+  height: 2rem; /* Mniejsza wysokość */
+  padding: 0 var(--spacing-xs); /* ~0.5rem */
+  font-size: var(--font-size-sm); /* ~0.875rem */
+}
+
+.ButtonLg {
+  height: 3rem; /* Większa wysokość */
+  padding: 0 var(--spacing-lg); /* ~2rem */
+  font-size: var(--font-size-lg); /* ~1.125rem */
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@repo/ui",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "exports": {
+    "./styles.css": "./src/styles.css",
+    "./toast": "./src/toast/toast.tsx",
+    "./form": "./src/form/index.ts",
+    "./input": "./src/input/Input.tsx",
+    "./button": "./src/button/Button.tsx"
+  },
+  "main": "./dist/toast/index.js",
+  "types": "./dist/toast/index.d.ts",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.24.0",
+  "dependencies": {
+    "@base-ui/react": "catalog:",
+    "lucide-react": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/typescript": "workspace:*",
+    "typescript": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:"
+  },
+  "peerDependencies": {
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  }
+}

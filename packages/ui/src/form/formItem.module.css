@@ -1,0 +1,19 @@
+.Field {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--spacing-xxs);
+}
+
+.Label {
+  font-size: var(--font-size-sm);
+  line-height: normal;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-default);
+}
+
+.Error {
+  font-size: var(--font-size-sm);
+  line-height: normal;
+  color: var(--color-error-text);
+}

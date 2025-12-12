@@ -15,7 +15,9 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "tailwindcss": "catalog:",
-    "vite-tsconfig-paths": "5.1.4"
+    "vite-tsconfig-paths": "5.1.4",
+    "zod": "4.1.13",
+    "@repo/ui": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "catalog:",

@@ -5,8 +5,10 @@ import * as TanStackQueryProvider from "./integrations/tanstack-query/root-provi
 // Import translations
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen.ts";
-
+import "@repo/ui/styles.css";
 import "./styles.css";
+
+import { Toaster } from "@repo/ui/toast";
 import { I18nProvider } from "./locales/I18nProvider";
 
 // Create a new router instance
@@ -35,11 +37,15 @@ if (rootElement && !rootElement.innerHTML) {
 
 	root.render(
 		<StrictMode>
-			<I18nProvider>
-				<TanStackQueryProvider.Provider queryClient={queryClient}>
-					<RouterProvider router={router} />
-				</TanStackQueryProvider.Provider>
-			</I18nProvider>
+			<div className="root">
+				<I18nProvider>
+					<TanStackQueryProvider.Provider queryClient={queryClient}>
+						<Toaster>
+							<RouterProvider router={router} />
+						</Toaster>
+					</TanStackQueryProvider.Provider>
+				</I18nProvider>
+			</div>
 		</StrictMode>,
 	);
 }
