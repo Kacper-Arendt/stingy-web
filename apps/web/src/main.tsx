@@ -9,6 +9,7 @@ import "@repo/ui/styles.css";
 import "./styles.css";
 
 import { Toaster } from "@repo/ui/toast";
+import { ThemeProvider } from "@/components/theme/theme-provider";
 import { I18nProvider } from "./locales/I18nProvider";
 
 // Create a new router instance
@@ -40,9 +41,11 @@ if (rootElement && !rootElement.innerHTML) {
 			<div className="root">
 				<I18nProvider>
 					<TanStackQueryProvider.Provider queryClient={queryClient}>
-						<Toaster>
-							<RouterProvider router={router} />
-						</Toaster>
+						<ThemeProvider>
+							<Toaster>
+								<RouterProvider router={router} />
+							</Toaster>
+						</ThemeProvider>
 					</TanStackQueryProvider.Provider>
 				</I18nProvider>
 			</div>

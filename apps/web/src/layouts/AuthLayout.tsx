@@ -1,3 +1,4 @@
+import { ModeToggle } from "@/components/theme/mode-toggle";
 import { apiConfig } from "@/config/app";
 import { useT } from "@/locales/useT";
 import styles from "./AuthLayout.module.css";
@@ -10,6 +11,9 @@ export function AuthLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<div className={styles.Container}>
 			<div className={styles.Wrapper}>
+				<div className={styles.Header}>
+					<ModeToggle />
+				</div>
 				<div className={styles.MainContent}>
 					<div className={styles.ContentWrapper}>{children}</div>
 				</div>
