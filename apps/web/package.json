@@ -7,14 +7,12 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@tailwindcss/vite": "4.1.17",
     "@tanstack/react-query": "catalog:",
     "@tanstack/react-router": "1.139.14",
     "@tanstack/router-plugin": "1.139.14",
     "lucide-react": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "tailwindcss": "catalog:",
     "vite-tsconfig-paths": "5.1.4",
     "zod": "4.1.13",
     "@repo/ui": "workspace:*"

@@ -4,15 +4,15 @@ import merge from "../utils/merge";
 import styles from "./button.module.css";
 
 interface IButton extends React.ComponentProps<"button"> {
-	variant?: "primary" | "secondary" | "danger" | "outline" | "ghost";
+	variant?: "primary" | "secondary" | "danger" | "outline" | "ghost" | "link";
 	size?: "small" | "medium" | "large";
-	children: React.ReactNode;
+	children?: React.ReactNode;
+	render?: React.ReactNode;
 }
 
 const Button = ({
 	variant = "primary",
 	size = "medium",
-	children,
 	className,
 	...props
 }: IButton) => {
@@ -22,6 +22,7 @@ const Button = ({
 		danger: styles.ButtonDanger,
 		outline: styles.ButtonOutline,
 		ghost: styles.ButtonGhost,
+		link: styles.ButtonLink,
 	}[variant];
 
 	const sizeClass = {
@@ -37,11 +38,7 @@ const Button = ({
 		className,
 	);
 
-	return (
-		<BaseButton className={buttonClasses} {...props}>
-			{children}
-		</BaseButton>
-	);
+	return <BaseButton className={buttonClasses} {...props} />;
 };
 
 export default Button;

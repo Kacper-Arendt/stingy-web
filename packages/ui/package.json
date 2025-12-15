@@ -8,7 +8,8 @@
     "./toast": "./src/toast/toast.tsx",
     "./form": "./src/form/index.ts",
     "./input": "./src/input/Input.tsx",
-    "./button": "./src/button/Button.tsx"
+    "./button": "./src/button/Button.tsx",
+    "./card": "./src/card/Card.tsx"
   },
   "main": "./dist/toast/index.js",
   "types": "./dist/toast/index.d.ts",

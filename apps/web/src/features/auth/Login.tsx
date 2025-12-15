@@ -1,11 +1,13 @@
+import Button from "@repo/ui/button";
+import Card from "@repo/ui/card";
 import { useToastManager } from "@repo/ui/toast";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useTransition } from "react";
 import { useT } from "@/locales/useT";
 import { login } from "./api/login.api";
-import LoginForm from "./components/LoginForm";
-import styles from "./Login.module.css";
-import type { LoginFormData } from "./schemas/login.schema";
+import RouteWrapper from "./components/RouteWrapper";
+import SignForm from "./components/SignForm";
+import type { UserSignData } from "./schemas/user.schema";
 import type { LoginUserPayload } from "./types/login";
 
 export const Login = () => {
@@ -14,7 +16,7 @@ export const Login = () => {
 	const toastManager = useToastManager();
 	const [isPending, startTransition] = useTransition();
 
-	const onSubmit = async (data: LoginFormData) =>
+	const onSubmit = async (data: UserSignData) =>
 		startTransition(async () => {
 			const payload: LoginUserPayload = {
 				email: data.email,
@@ -22,6 +24,7 @@ export const Login = () => {
 			};
 
 			const res = await login(payload);
+
 			if (!res.ok)
 				toastManager.add({
 					title: t("login_error_invalid_credentials"),
@@ -31,22 +34,35 @@ export const Login = () => {
 		});
 
 	return (
-		<div className={styles.Container}>
-			<div className={styles.Header}>
-				<h2 className={styles.Title}>{t("login_new_title")}</h2>
-				<p className={styles.Subtitle}>{t("login_new_subtitle")}</p>
-			</div>
+		<RouteWrapper>
+			<Card>
+				<Card.Header>
+					<Card.Title>{t("login_new_title")}</Card.Title>
+					<Card.Description>{t("login_new_subtitle")}</Card.Description>
+				</Card.Header>
 
-			<LoginForm onSubmit={onSubmit} isPending={isPending} />
+				<Card.Content>
+					<SignForm
+						onSubmit={onSubmit}
+						isPending={isPending}
+						submitButtonText={t(
+							isPending ? "login_button_loading" : "login_button",
+						)}
+					/>
+				</Card.Content>
 
-			<div className={styles.Footer}>
-				<p className={styles.FooterText}>
-					{t("login_no_account")}{" "}
-					<Link to="/auth/register" className={styles.Link}>
-						{t("login_sign_up")}
-					</Link>
-				</p>
-			</div>
-		</div>
+				<Card.Footer>
+					<Button
+						variant="link"
+						size="small"
+						render={
+							<Link to="/auth/register">
+								{t("login_no_account")} {t("login_sign_up")}
+							</Link>
+						}
+					/>
+				</Card.Footer>
+			</Card>
+		</RouteWrapper>
 	);
 };

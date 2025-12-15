@@ -306,10 +306,9 @@ export default {
 	auth_team_collaboration: "Team Collaboration",
 	auth_actionable_insights: "Actionable Insights",
 	auth_continuous_improvement: "Continuous Improvement",
-	auth_copyright: "© 2025 Retrospectacle. All rights reserved.",
+	auth_copyright: "All rights reserved.",
 	register_new_title: "Create your account",
-	register_new_subtitle:
-		"Join thousands of teams improving with retrospectives",
+	register_new_subtitle: "Start managing your budgets with ease",
 	register_email_placeholder: "Enter your email",
 	register_password_placeholder: "Create a strong password",
 	register_confirm_password_label: "Confirm Password",

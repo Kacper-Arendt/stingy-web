@@ -1,4 +1,4 @@
 export const apiConfig = {
-	name: "Retrospectacle",
+	name: "Stingy",
 	baseUrl: import.meta.env.VITE_API_URL,
 };

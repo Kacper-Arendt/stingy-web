@@ -127,6 +127,27 @@
   }
 }
 
+.ButtonLink {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-text-default);
+  padding: 0 var(--spacing-xxs);
+  width: fit-content;
+
+  &:hover:not([data-disabled]) {
+    text-decoration: underline;
+    color: var(--color-primary-dark);
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  &:active:not([data-disabled]) {
+    color: var(--color-primary-dark);
+    border-color: transparent;
+    background-color: transparent;
+  }
+}
+
 .ButtonSm {
   height: 2rem; /* Mniejsza wysokość */
   padding: 0 var(--spacing-xs); /* ~0.5rem */

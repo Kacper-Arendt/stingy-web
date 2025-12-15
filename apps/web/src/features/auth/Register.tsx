@@ -1,139 +1,81 @@
+import Button from "@repo/ui/button";
+import Card from "@repo/ui/card";
+import { useToastManager } from "@repo/ui/toast";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { AlertCircle, Eye, EyeOff, Lock, Mail } from "lucide-react";
-import { useState } from "react";
-import { z } from "zod";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import { FormItem } from "@/components/ui/FormItem";
-import { Input } from "@/components/ui/input";
+import { useTransition } from "react";
 import { useT } from "@/locales/useT";
 import { register } from "./api/register.api";
+import RouteWrapper from "./components/RouteWrapper";
+import SignForm from "./components/SignForm";
+import type { UserSignData } from "./schemas/user.schema";
 import type { RegisterUserPayload } from "./types/register";
 
-const createRegisterSchema = () =>
-	z.object({
-		email: z.string(),
-		password: z.string(),
-	});
-
-type RegisterFormData = z.infer<ReturnType<typeof createRegisterSchema>>;
-
-export const Register = () => {
-	const [showPassword, setShowPassword] = useState(false);
-	const [isLoading, setIsLoading] = useState(false);
-	const [error, setError] = useState("");
+const Register = () => {
 	const navigate = useNavigate();
 	const { t } = useT();
+	const [isPending, startTransition] = useTransition();
+	const toastManager = useToastManager();
 
-	const onSubmit = async (data: RegisterFormData) => {
-		setError("");
-		setIsLoading(true);
-
-		try {
+	const onSubmit = async (data: UserSignData) =>
+		startTransition(async () => {
 			const payload: RegisterUserPayload = {
 				email: data.email,
 				password: data.password,
 			};
 
 			const res = await register(payload);
+
+			if (res.ok) return navigate({ to: "/auth" });
+
 			if (!res.ok) {
 				const responseData = await res.json();
 				if (
 					responseData?.message === `Username '${data.email}' is already taken.`
-				) {
-					setError("This email is already registered");
-				} else {
-					setError(t("register_error_general"));
-				}
-			} else {
-				navigate({ to: "/auth" });
+				)
+					toastManager.add({
+						title: t("register_error_email_taken"),
+						type: "error",
+					});
+				else
+					toastManager.add({
+						title: t("register_error_general"),
+						type: "error",
+					});
 			}
-		} finally {
-			setIsLoading(false);
-		}
-	};
+		});
 
 	return (
-		<div className="space-y-6">
-			{/* Title and subtitle */}
-			<div className="text-center space-y-2">
-				<h2 className="text-2xl font-bold">{t("register_new_title")}</h2>
-				<p className="text-muted-foreground">{t("register_new_subtitle")}</p>
-			</div>
+		<RouteWrapper>
+			<Card>
+				<Card.Header>
+					<Card.Title>{t("register_new_title")}</Card.Title>
+					<Card.Description>{t("register_new_subtitle")}</Card.Description>
+				</Card.Header>
 
-			<form onSubmit={onSubmit} className="space-y-4">
-				{error && (
-					<Alert variant="destructive">
-						<AlertCircle className="h-4 w-4" />
-						<AlertDescription>{error}</AlertDescription>
-					</Alert>
-				)}
+				<Card.Content>
+					<SignForm
+						onSubmit={onSubmit}
+						isPending={isPending}
+						submitButtonText={t(
+							isPending ? "register_button_loading" : "register_button",
+						)}
+					/>
+				</Card.Content>
 
-				{/* Email */}
-				<FormItem
-					id="email"
-					label={{ text: t("register_email_label"), required: true }}
-				>
-					<div className="relative">
-						<Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-						<Input
-							id="email"
-							type="email"
-							placeholder={t("register_email_placeholder")}
-							className="pl-10"
-							disabled={isLoading}
-						/>
-					</div>
-				</FormItem>
-
-				{/* Password */}
-				<FormItem
-					id="password"
-					label={{ text: t("register_password_label"), required: true }}
-				>
-					<div className="relative">
-						<Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-						<Input
-							id="password"
-							type={showPassword ? "text" : "password"}
-							placeholder={t("register_password_placeholder")}
-							className="pl-10 pr-10"
-							disabled={isLoading}
-						/>
-						<Button
-							type="button"
-							variant="ghost"
-							size="sm"
-							className="absolute right-1 top-1 h-8 w-8 p-0"
-							onClick={() => setShowPassword(!showPassword)}
-							disabled={isLoading}
-						>
-							{showPassword ? (
-								<EyeOff className="h-4 w-4" />
-							) : (
-								<Eye className="h-4 w-4" />
-							)}
-						</Button>
-					</div>
-				</FormItem>
-
-				{/* Submit Button */}
-				<Button type="submit" className="w-full" size="lg" disabled={isLoading}>
-					{isLoading
-						? t("register_button_creating")
-						: t("register_button_create")}
-				</Button>
-			</form>
-
-			{/* Login Link */}
-			<div className="text-center">
-				<p className="text-sm text-muted-foreground">
-					{t("register_already_account")}{" "}
-					<Link to="/auth" className="text-primary hover:underline font-medium">
-						{t("register_sign_in")}
-					</Link>
-				</p>
-			</div>
-		</div>
+				<Card.Footer>
+					<Button
+						variant="link"
+						size="small"
+						render={
+							<Link to="/auth">
+								{t("register_already_account")} {t("register_sign_in")}
+							</Link>
+						}
+					/>
+				</Card.Footer>
+			</Card>
+		</RouteWrapper>
 	);
 };
+
+export default Register;

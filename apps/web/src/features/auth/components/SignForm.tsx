@@ -4,42 +4,32 @@ import Input from "@repo/ui/input";
 import { useState } from "react";
 import z from "zod";
 import { useT } from "@/locales/useT";
-import { createLoginSchema, type LoginFormData } from "../schemas/login.schema";
+import { UserSchema, type UserSignData } from "../schemas/user.schema";
 
 const LoginForm = ({
 	onSubmit,
 	isPending,
+	submitButtonText,
 }: {
-	onSubmit: (data: LoginFormData) => void;
+	onSubmit: (data: UserSignData) => void;
 	isPending: boolean;
+	submitButtonText: string;
 }) => {
 	const [errors, setErrors] = useState({});
 	const { t } = useT();
 
 	const submitForm = async (formValues: unknown) => {
-		const result = createLoginSchema().safeParse(formValues);
+		const result = UserSchema().safeParse(formValues);
 
 		if (!result.success)
-			return {
-				errors: z.flattenError(result.error).fieldErrors,
-			};
+			return setErrors(z.flattenError(result.error).fieldErrors);
 
-		return {
-			errors: {},
-			data: result.data,
-			success: true,
-		};
+		setErrors({});
+		onSubmit(result.data);
 	};
 
 	return (
-		<Form
-			errors={errors}
-			onFormSubmit={async (formValues) => {
-				const response = await submitForm(formValues);
-				setErrors(response.errors);
-				if (response.success) onSubmit(response.data);
-			}}
-		>
+		<Form errors={errors} onFormSubmit={submitForm}>
 			<FormItem name="email" label={t("login_email_label")}>
 				<Input
 					name="email"
@@ -60,7 +50,7 @@ const LoginForm = ({
 				/>
 			</FormItem>
 			<Button type="submit" variant="primary" disabled={isPending}>
-				{isPending ? t("login_button_loading") : t("login_title")}
+				{submitButtonText}
 			</Button>
 		</Form>
 	);
