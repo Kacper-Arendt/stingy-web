@@ -1,8 +1,8 @@
-import Button from "@repo/ui/button";
 import Card from "@repo/ui/card";
 import { useToastManager } from "@repo/ui/toast";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { useTransition } from "react";
+import AppLink from "@/components/ui/AppLink";
 import { useT } from "@/locales/useT";
 import { login } from "./api/login.api";
 import RouteWrapper from "./components/RouteWrapper";
@@ -52,15 +52,9 @@ export const Login = () => {
 				</Card.Content>
 
 				<Card.Footer>
-					<Button
-						variant="link"
-						size="small"
-						render={
-							<Link to="/auth/register">
-								{t("login_no_account")} {t("login_sign_up")}
-							</Link>
-						}
-					/>
+					<AppLink to="/auth/register">
+						{t("login_no_account")} {t("login_sign_up")}
+					</AppLink>
 				</Card.Footer>
 			</Card>
 		</RouteWrapper>

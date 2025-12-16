@@ -1,0 +1,31 @@
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  border-right: 1px solid var(--color-text-inverse);
+
+  transition: width 520ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.SidebarOpen {
+  width: 200px;
+}
+
+.SidebarClosed {
+  width: 65px;
+}
+
+.SidebarContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  flex: 1;
+}
+
+.SidebarFooter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: auto;
+}

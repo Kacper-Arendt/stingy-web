@@ -1,0 +1,10 @@
+.SystemLayout {
+  display: flex;
+  height: 100dvh;
+}
+
+.SystemLayoutContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

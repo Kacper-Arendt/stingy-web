@@ -1,8 +1,8 @@
-import Button from "@repo/ui/button";
 import Card from "@repo/ui/card";
 import { useToastManager } from "@repo/ui/toast";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { useTransition } from "react";
+import AppLink from "@/components/ui/AppLink";
 import { useT } from "@/locales/useT";
 import { register } from "./api/register.api";
 import RouteWrapper from "./components/RouteWrapper";
@@ -63,15 +63,9 @@ const Register = () => {
 				</Card.Content>
 
 				<Card.Footer>
-					<Button
-						variant="link"
-						size="small"
-						render={
-							<Link to="/auth">
-								{t("register_already_account")} {t("register_sign_in")}
-							</Link>
-						}
-					/>
+					<AppLink to="/auth">
+						{t("register_already_account")} {t("register_sign_in")}
+					</AppLink>
 				</Card.Footer>
 			</Card>
 		</RouteWrapper>

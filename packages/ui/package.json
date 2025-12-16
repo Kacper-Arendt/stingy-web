@@ -11,7 +11,8 @@
     "./button": "./src/button/Button.tsx",
     "./card": "./src/card/Card.tsx",
     "./menu": "./src/menu/Menu.tsx",
-    "./merge": "./src/utils/merge.ts"
+    "./merge": "./src/utils/merge.ts",
+    "./avatar": "./src/avatar/Avatar.tsx"
   },
   "main": "./dist/toast/index.js",
   "types": "./dist/toast/index.d.ts",
