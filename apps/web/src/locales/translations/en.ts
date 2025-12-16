@@ -48,7 +48,6 @@ export default {
 	teams_quick_actions: "Quick Actions",
 	teams_team_settings: "Team Settings",
 	teams_invite_members: "Invite",
-	teams_view_all_retrospectives: "View All Retrospectives",
 	teams_manage_team_settings: "Manage team settings",
 	teams_invite_members_description: "Add new team members",
 	teams_loading: "Loading team...",
@@ -73,8 +72,6 @@ export default {
 	created: "Created",
 	created_error: "Creation failed",
 	teams_member_count: "{count} members",
-	teams_retro_count: "{count} retros",
-	teams_last_retro_date: "Last retro date",
 	teams_stats_error: "Failed to load team statistics",
 	teams_recent_activity: "Recent Activity",
 	teams_recent_activity_placeholder:
@@ -125,8 +122,6 @@ export default {
 	theme_dark: "Dark",
 	theme_system: "System",
 	theme_toggle: "Toggle theme",
-	retro_column_color_invalid:
-		"Invalid color format. Use hex format like #FF0000",
 	teams_manage_members: "Manage",
 	teams_settings: "Settings",
 	teams_settings_description: "Manage your team configuration and members",
@@ -293,7 +288,6 @@ export default {
 	teams_pending_invitations_team: "Team",
 	teams_pending_invitations_role: "Role",
 	teams_pending_invitations_invited_at: "Invited at",
-	teams_retro_created_error: "Failed to create retrospective",
 	invitation_accept_error: "Failed to accept invitation.",
 	invitation_deny_error: "Failed to deny invitation.",
 	join: "Join",
@@ -327,7 +321,6 @@ export default {
 	profile_save_success: "Profile updated successfully",
 	profile_save_error: "Failed to update profile",
 	profile_load_error: "Failed to load profile",
-	profile_stats_retros: "Retrospectives",
 	profile_stats_teams: "Teams",
 	profile_stats_notes: "Notes",
 	profile_stats_last_activity: "Last Activity",
@@ -420,8 +413,6 @@ export default {
 		"Learn how to manage your teams and invitations",
 	onboarding_guides_team_detail_description:
 		"Discover team features, settings, and member management",
-	onboarding_guides_retro_description:
-		"Understand retrospective statuses, notes, and features",
 	onboarding_guides_status: "Status",
 	onboarding_guides_status_not_viewed: "Not viewed",
 	onboarding_guides_status_completed: "Completed",
@@ -474,40 +465,6 @@ export default {
 	onboarding_team_detail_section_roles_member: "Member:",
 	onboarding_team_detail_section_roles_member_desc:
 		"Can view team information and participate in retrospectives",
-	onboarding_retro_title: "Retrospective Guide",
-	onboarding_retro_section_statuses_title: "Retrospective Statuses",
-	onboarding_retro_section_statuses_content:
-		"Each retrospective goes through different stages:",
-	onboarding_retro_section_statuses_planned: "Planned:",
-	onboarding_retro_section_statuses_planned_desc:
-		"The retro is scheduled but not yet started. Notes are hidden from other participants.",
-	onboarding_retro_section_statuses_inprogress: "In Progress:",
-	onboarding_retro_section_statuses_inprogress_desc:
-		"Active brainstorming phase. Everyone can add notes, but they remain private until revealed.",
-	onboarding_retro_section_statuses_revealed: "Revealed:",
-	onboarding_retro_section_statuses_revealed_desc:
-		"All notes are now visible to everyone. Great time for discussion and voting. Summary and slideshow are available.",
-	onboarding_retro_section_statuses_finished: "Finished:",
-	onboarding_retro_section_statuses_finished_desc:
-		"The retro is complete. Notes are locked.",
-	onboarding_retro_section_notes_title: "Working with Notes",
-	onboarding_retro_section_notes_content:
-		"You can add notes during Planned, In Progress and Revealed statuses:",
-	onboarding_retro_section_notes_item_1: "Click on a column to add a new note",
-	onboarding_retro_section_notes_item_2:
-		"Paste images directly into your notes for visual feedback",
-	onboarding_retro_section_notes_item_3:
-		"Add links to reference external resources or documentation",
-	onboarding_retro_section_features_title: "Additional Features",
-	onboarding_retro_section_features_slideshow: "Slideshow:",
-	onboarding_retro_section_features_slideshow_desc:
-		"Present notes one by one in a focused view, perfect for team discussions",
-	onboarding_retro_section_features_summary: "Summary:",
-	onboarding_retro_section_features_summary_desc:
-		"View a comprehensive overview of all notes and insights from the retrospective",
-	onboarding_retro_section_permissions_title: "Permissions",
-	onboarding_retro_section_permissions_content:
-		"Team admins and owners can change the retrospective status. All participants can add notes during the appropriate phases.",
 	onboarding_team_settings_title: "Team Settings Guide",
 	onboarding_team_settings_section_overview_title: "Welcome to Team Settings",
 	onboarding_team_settings_section_overview_content:

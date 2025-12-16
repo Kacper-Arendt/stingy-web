@@ -2,7 +2,9 @@
   "name": "@repo/ui",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "check-types": "tsc --noEmit"
+  },
   "exports": {
     "./styles.css": "./src/styles.css",
     "./toast": "./src/toast/toast.tsx",
@@ -12,7 +14,21 @@
     "./card": "./src/card/Card.tsx",
     "./menu": "./src/menu/Menu.tsx",
     "./merge": "./src/utils/merge.ts",
-    "./avatar": "./src/avatar/Avatar.tsx"
+    "./avatar": "./src/avatar/Avatar.tsx",
+    "./combobox": "./src/combobox/Combobox.tsx",
+    "./autocomplete": "./src/autocomplete/Autocomplete.tsx",
+    "./checkbox": "./src/checkbox/Checkbox.tsx",
+    "./checkbox-group": "./src/checkbox-group/CheckboxGroup.tsx",
+    "./collapsible": "./src/collapsible/Collapsible.tsx",
+    "./dialog": "./src/dialog/Dialog.tsx",
+    "./meter": "./src/meter/Meter.tsx",
+    "./navigation-menu": "./src/navigation-menu/NavigationMenu.tsx",
+    "./number-field": "./src/number-field/NumberField.tsx",
+    "./progress": "./src/progress/Progress.tsx",
+    "./radio": "./src/radio/Radio.tsx",
+    "./select": "./src/select/Select.tsx",
+    "./switch": "./src/switch/Switch.tsx",
+    "./tabs": "./src/tabs/Tabs.tsx"
   },
   "main": "./dist/toast/index.js",
   "types": "./dist/toast/index.d.ts",

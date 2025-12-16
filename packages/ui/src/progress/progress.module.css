@@ -1,0 +1,35 @@
+.Root {
+  box-sizing: border-box;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-bg-secondary);
+  overflow: hidden;
+  position: relative;
+}
+
+.Root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--color-primary-default) 0%,
+    var(--color-primary-default) var(--value-percent, 0%),
+    transparent var(--value-percent, 0%),
+    transparent 100%
+  );
+  transition: background 0.3s ease-in-out;
+}
+
+.ValueText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-default);
+  z-index: 1;
+  pointer-events: none;
+}

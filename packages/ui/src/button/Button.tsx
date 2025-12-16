@@ -6,7 +6,6 @@ import styles from "./button.module.css";
 interface IButton extends React.ComponentProps<"button"> {
 	variant?: "primary" | "secondary" | "danger" | "outline" | "ghost" | "link";
 	size?: "small" | "medium" | "large";
-	children?: React.ReactNode;
 	render?: React.ReactNode;
 }
 
@@ -14,6 +13,7 @@ const Button = ({
 	variant = "primary",
 	size = "medium",
 	className,
+	render,
 	...props
 }: IButton) => {
 	const variantClass = {

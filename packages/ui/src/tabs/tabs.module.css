@@ -1,0 +1,81 @@
+.Root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.List {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.Tab {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin: 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--color-text-light);
+  font-family: inherit;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+  &:hover:not([data-disabled]) {
+    color: var(--color-text-default);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--semantic-input-focus-border);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-xs);
+  }
+
+  &[data-selected] {
+    color: var(--color-primary-default);
+    border-bottom-color: var(--color-primary-default);
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.Panel {
+  padding: var(--spacing-md) 0;
+  color: var(--color-text-default);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  animation: fadeIn 0.2s ease-in-out;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+  }
+}
+
+.Indicator {
+  position: absolute;
+  bottom: -1px;
+  height: 2px;
+  background-color: var(--color-primary-default);
+  transition: left 0.2s ease-in-out, width 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

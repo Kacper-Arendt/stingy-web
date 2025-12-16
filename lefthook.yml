@@ -1,8 +1,8 @@
 pre-commit:
   parallel: true
   jobs:
-    # - run: tsc --noEmit
-    #   glob: "*.{ts,tsx}"
+    - run: pnpm check-types
+      glob: "*.{ts,tsx}"
 
     - name: biomix
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"

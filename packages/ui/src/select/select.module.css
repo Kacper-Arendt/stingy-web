@@ -1,0 +1,157 @@
+.Root {
+  /* Root container styles if needed */
+}
+
+.Trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xs);
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+  margin: 0;
+  border: 1px solid var(--semantic-input-border);
+  width: 16rem;
+  height: 2.5rem;
+  border-radius: var(--border-radius-sm);
+  font-family: inherit;
+  font-size: var(--font-size-md);
+  background-color: var(--semantic-input-bg);
+  color: var(--semantic-input-text);
+  cursor: pointer;
+  transition: border-color 0.15s ease-in-out;
+
+  &:hover:not([data-disabled]) {
+    border-color: var(--semantic-input-focus-border);
+  }
+
+  &:focus {
+    outline: 2px solid var(--semantic-input-focus-border);
+    outline-offset: -1px;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.Icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+  transition: transform 0.2s ease-in-out;
+
+  [data-open] & {
+    transform: rotate(180deg);
+  }
+}
+
+.Label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  font-size: var(--font-size-sm);
+  line-height: 1.25rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-default);
+  position: relative;
+}
+
+.Positioner {
+  outline: 0;
+}
+
+.Popup {
+  box-sizing: border-box;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-bg-inverse);
+  color: var(--color-text-default);
+  width: var(--anchor-width);
+  max-height: 23rem;
+  max-width: var(--available-width);
+  transition: opacity 0.1s, transform 0.1s;
+  transform-origin: var(--transform-origin);
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  @media (prefers-color-scheme: light) {
+    outline: 1px solid var(--color-border);
+    box-shadow: var(--elevation-2);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    outline: 1px solid var(--color-text-light);
+    outline-offset: -1px;
+  }
+}
+
+.List {
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-block: var(--spacing-xs);
+  scroll-padding-block: var(--spacing-xs);
+  outline: 0;
+  max-height: min(23rem, var(--available-height));
+
+  &[data-empty] {
+    padding: 0;
+  }
+}
+
+.Item {
+  box-sizing: border-box;
+  outline: 0;
+  cursor: default;
+  user-select: none;
+  padding-block: var(--spacing-xs);
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-lg);
+  display: grid;
+  gap: var(--spacing-xs);
+  align-items: center;
+  grid-template-columns: 0.75rem 1fr;
+  font-size: var(--font-size-md);
+  line-height: 1rem;
+
+  &[data-highlighted] {
+    z-index: 0;
+    position: relative;
+    color: var(--color-text-inverse);
+  }
+
+  &[data-highlighted]::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset-block: 0;
+    inset-inline: var(--spacing-xs);
+    border-radius: var(--border-radius-xs);
+    background-color: var(--color-bg-secondary);
+  }
+}
+
+.Value {
+  grid-column-start: 2;
+}
+
+.ValueText {
+  grid-column-start: 2;
+}
+
+.ItemIndicator {
+  grid-column-start: 1;
+}
+
+.ItemIndicatorIcon {
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+}

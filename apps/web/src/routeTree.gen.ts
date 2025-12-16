@@ -14,9 +14,6 @@ import { Route as SystemRouteRouteImport } from './routes/_system/route'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as SystemIndexRouteImport } from './routes/_system/index'
 import { Route as AuthRegisterRouteImport } from './routes/auth/register'
-import { Route as SystemUsersMeRouteImport } from './routes/_system/users/me'
-import { Route as SystemTeamsTeamIdIndexRouteImport } from './routes/_system/teams/$teamId/index'
-import { Route as SystemTeamsTeamIdSettingsRouteImport } from './routes/_system/teams/$teamId/settings'
 
 const AuthRouteRoute = AuthRouteRouteImport.update({
   id: '/auth',
@@ -42,39 +39,17 @@ const AuthRegisterRoute = AuthRegisterRouteImport.update({
   path: '/register',
   getParentRoute: () => AuthRouteRoute,
 } as any)
-const SystemUsersMeRoute = SystemUsersMeRouteImport.update({
-  id: '/users/me',
-  path: '/users/me',
-  getParentRoute: () => SystemRouteRoute,
-} as any)
-const SystemTeamsTeamIdIndexRoute = SystemTeamsTeamIdIndexRouteImport.update({
-  id: '/teams/$teamId/',
-  path: '/teams/$teamId/',
-  getParentRoute: () => SystemRouteRoute,
-} as any)
-const SystemTeamsTeamIdSettingsRoute =
-  SystemTeamsTeamIdSettingsRouteImport.update({
-    id: '/teams/$teamId/settings',
-    path: '/teams/$teamId/settings',
-    getParentRoute: () => SystemRouteRoute,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/auth': typeof AuthRouteRouteWithChildren
   '/auth/register': typeof AuthRegisterRoute
   '/': typeof SystemIndexRoute
   '/auth/': typeof AuthIndexRoute
-  '/users/me': typeof SystemUsersMeRoute
-  '/teams/$teamId/settings': typeof SystemTeamsTeamIdSettingsRoute
-  '/teams/$teamId': typeof SystemTeamsTeamIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/auth/register': typeof AuthRegisterRoute
   '/': typeof SystemIndexRoute
   '/auth': typeof AuthIndexRoute
-  '/users/me': typeof SystemUsersMeRoute
-  '/teams/$teamId/settings': typeof SystemTeamsTeamIdSettingsRoute
-  '/teams/$teamId': typeof SystemTeamsTeamIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -83,28 +58,12 @@ export interface FileRoutesById {
   '/auth/register': typeof AuthRegisterRoute
   '/_system/': typeof SystemIndexRoute
   '/auth/': typeof AuthIndexRoute
-  '/_system/users/me': typeof SystemUsersMeRoute
-  '/_system/teams/$teamId/settings': typeof SystemTeamsTeamIdSettingsRoute
-  '/_system/teams/$teamId/': typeof SystemTeamsTeamIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/auth'
-    | '/auth/register'
-    | '/'
-    | '/auth/'
-    | '/users/me'
-    | '/teams/$teamId/settings'
-    | '/teams/$teamId'
+  fullPaths: '/auth' | '/auth/register' | '/' | '/auth/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/auth/register'
-    | '/'
-    | '/auth'
-    | '/users/me'
-    | '/teams/$teamId/settings'
-    | '/teams/$teamId'
+  to: '/auth/register' | '/' | '/auth'
   id:
     | '__root__'
     | '/_system'
@@ -112,9 +71,6 @@ export interface FileRouteTypes {
     | '/auth/register'
     | '/_system/'
     | '/auth/'
-    | '/_system/users/me'
-    | '/_system/teams/$teamId/settings'
-    | '/_system/teams/$teamId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -159,42 +115,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRegisterRouteImport
       parentRoute: typeof AuthRouteRoute
     }
-    '/_system/users/me': {
-      id: '/_system/users/me'
-      path: '/users/me'
-      fullPath: '/users/me'
-      preLoaderRoute: typeof SystemUsersMeRouteImport
-      parentRoute: typeof SystemRouteRoute
-    }
-    '/_system/teams/$teamId/': {
-      id: '/_system/teams/$teamId/'
-      path: '/teams/$teamId'
-      fullPath: '/teams/$teamId'
-      preLoaderRoute: typeof SystemTeamsTeamIdIndexRouteImport
-      parentRoute: typeof SystemRouteRoute
-    }
-    '/_system/teams/$teamId/settings': {
-      id: '/_system/teams/$teamId/settings'
-      path: '/teams/$teamId/settings'
-      fullPath: '/teams/$teamId/settings'
-      preLoaderRoute: typeof SystemTeamsTeamIdSettingsRouteImport
-      parentRoute: typeof SystemRouteRoute
-    }
   }
 }
 
 interface SystemRouteRouteChildren {
   SystemIndexRoute: typeof SystemIndexRoute
-  SystemUsersMeRoute: typeof SystemUsersMeRoute
-  SystemTeamsTeamIdSettingsRoute: typeof SystemTeamsTeamIdSettingsRoute
-  SystemTeamsTeamIdIndexRoute: typeof SystemTeamsTeamIdIndexRoute
 }
 
 const SystemRouteRouteChildren: SystemRouteRouteChildren = {
   SystemIndexRoute: SystemIndexRoute,
-  SystemUsersMeRoute: SystemUsersMeRoute,
-  SystemTeamsTeamIdSettingsRoute: SystemTeamsTeamIdSettingsRoute,
-  SystemTeamsTeamIdIndexRoute: SystemTeamsTeamIdIndexRoute,
 }
 
 const SystemRouteRouteWithChildren = SystemRouteRoute._addFileChildren(

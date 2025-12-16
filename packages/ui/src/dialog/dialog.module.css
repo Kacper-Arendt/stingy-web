@@ -1,0 +1,122 @@
+.Trigger {
+  /* Inherit button styles or use default button styling */
+}
+
+.Backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: oklch(0% 0 0 / 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 9998;
+  animation: fadeIn 0.15s ease-in-out;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+  }
+}
+
+.Popup {
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 90vw;
+  max-width: 32rem;
+  max-height: 90vh;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-bg-inverse);
+  color: var(--color-text-default);
+  box-shadow: var(--elevation-2);
+  outline: 1px solid var(--color-border);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: slideIn 0.2s ease-out;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+}
+
+.Viewport {
+  box-sizing: border-box;
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.Close {
+  box-sizing: border-box;
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--border-radius-xs);
+  background: none;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+  &:hover:not([data-disabled]) {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-default);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--semantic-input-focus-border);
+    outline-offset: 2px;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.Title {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  color: var(--color-text-default);
+}
+
+.Description {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text-light);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}

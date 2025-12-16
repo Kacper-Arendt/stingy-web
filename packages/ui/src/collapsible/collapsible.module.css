@@ -1,0 +1,61 @@
+.Root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.Trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--spacing-sm);
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-bg-default);
+  color: var(--color-text-default);
+  font-family: inherit;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+  &:hover:not([data-disabled]) {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--semantic-input-focus-border);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--semantic-input-focus-border);
+    outline-offset: 2px;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.Icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out;
+  color: var(--color-text-light);
+}
+
+.Trigger[data-open] .Icon {
+  transform: rotate(180deg);
+}
+
+.Panel {
+  overflow: hidden;
+  transition: height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,128 @@
+.Root {
+  position: relative;
+}
+
+.List {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Item {
+  position: relative;
+}
+
+.Trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  margin: 0;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background: none;
+  color: var(--color-text-default);
+  font-family: inherit;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+  &:hover:not([data-disabled]) {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-primary-default);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--semantic-input-focus-border);
+    outline-offset: 2px;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &[data-open] {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-primary-default);
+  }
+}
+
+.Link {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  color: var(--color-text-default);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+  &:hover:not([data-disabled]) {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-primary-default);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--semantic-input-focus-border);
+    outline-offset: 2px;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.Content {
+  box-sizing: border-box;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: var(--spacing-xs);
+  min-width: 12rem;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-bg-inverse);
+  color: var(--color-text-default);
+  box-shadow: var(--elevation-2);
+  outline: 1px solid var(--color-border);
+  z-index: 1000;
+  animation: slideDown 0.2s ease-out;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+}
+
+.Viewport {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

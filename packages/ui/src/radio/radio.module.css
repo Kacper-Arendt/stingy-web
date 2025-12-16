@@ -1,0 +1,48 @@
+.Root {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid var(--semantic-input-border);
+  border-radius: 50%;
+  background-color: var(--semantic-input-bg);
+  color: var(--color-text-default);
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+  &:hover:not([data-disabled]) {
+    border-color: var(--semantic-input-focus-border);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--semantic-input-focus-border);
+    outline-offset: 2px;
+  }
+
+  &[data-checked] {
+    border-color: var(--color-primary-default);
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.Indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--color-primary-default);
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+
+  [data-checked] & {
+    opacity: 1;
+  }
+}
