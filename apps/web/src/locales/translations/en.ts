@@ -6,7 +6,7 @@ export default {
 	register_button: "Register",
 	register_button_loading: "Registering...",
 	register_error_general: "Failed to create account. Please try again.",
-	register_success: "Registration successful!",
+	register_success: "Registration successful!.  Navigating to login page...",
 	register_password_requirements_lowercase: "At least one lowercase letter",
 	register_password_requirements_uppercase: "At least one uppercase letter",
 	register_password_requirements_digit: "At least one digit",
@@ -177,8 +177,6 @@ export default {
 	register_button_creating: "Creating account...",
 	register_already_account: "Already have an account?",
 	register_sign_in: "Sign in",
-	register_success_message:
-		"Account created successfully! Welcome to Retrospectacle!",
 	register_validation_password_uppercase:
 		"Password must contain an uppercase letter",
 	register_validation_password_lowercase:

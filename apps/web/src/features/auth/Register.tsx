@@ -25,7 +25,13 @@ const Register = () => {
 
 			const res = await register(payload);
 
-			if (res.ok) return navigate({ to: "/auth" });
+			if (res.ok) {
+				toastManager.add({
+					title: t("register_success"),
+					type: "success",
+				});
+				return navigate({ to: "/auth" });
+			}
 
 			if (!res.ok) {
 				const responseData = await res.json();

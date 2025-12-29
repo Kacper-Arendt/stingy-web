@@ -1,6 +1,6 @@
 import Card from "@repo/ui/card";
 import { useToastManager } from "@repo/ui/toast";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate, useRouter } from "@tanstack/react-router";
 import { useTransition } from "react";
 import AppLink from "@/components/ui/AppLink";
 import { useT } from "@/locales/useT";
@@ -12,6 +12,7 @@ import type { LoginUserPayload } from "./types/login";
 
 export const Login = () => {
 	const navigate = useNavigate();
+	const router = useRouter();
 	const { t } = useT();
 	const toastManager = useToastManager();
 	const [isPending, startTransition] = useTransition();
@@ -30,7 +31,10 @@ export const Login = () => {
 					title: t("login_error_invalid_credentials"),
 					type: "error",
 				});
-			else navigate({ to: "/" });
+			else {
+				await router.invalidate();
+				navigate({ to: "/" });
+			}
 		});
 
 	return (

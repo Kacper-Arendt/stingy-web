@@ -11,9 +11,7 @@ const Sidebar = ({ isOpen }: { isOpen: boolean }) => {
 			)}
 		>
 			<div className={styles.SidebarContent}>
-				<div className={styles.SidebarHeader}>
-					<p>XX</p>
-				</div>
+				<div className={styles.SidebarHeader}></div>
 
 				<div className={styles.SidebarFooter}>
 					<div>

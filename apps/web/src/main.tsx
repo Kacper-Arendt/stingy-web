@@ -10,6 +10,10 @@ import "./styles.css";
 
 import { Toaster } from "@repo/ui/toast";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import {
+	SessionProvider,
+	useSession,
+} from "./features/auth/session/SessionProvider";
 import { I18nProvider } from "./locales/I18nProvider";
 
 // Create a new router instance
@@ -17,6 +21,7 @@ const router = createRouter({
 	routeTree,
 	context: {
 		...TanStackQueryProvider.getContext(),
+		session: undefined!,
 	},
 	defaultPreload: "intent",
 	scrollRestoration: true,
@@ -31,6 +36,13 @@ declare module "@tanstack/react-router" {
 }
 
 const { queryClient } = TanStackQueryProvider.getContext();
+
+const InnerApp = () => {
+	const session = useSession();
+
+	return <RouterProvider router={router} context={{ session }} />;
+};
+
 // Render the app
 const rootElement = document.getElementById("app");
 if (rootElement && !rootElement.innerHTML) {
@@ -43,7 +55,9 @@ if (rootElement && !rootElement.innerHTML) {
 					<TanStackQueryProvider.Provider queryClient={queryClient}>
 						<ThemeProvider>
 							<Toaster>
-								<RouterProvider router={router} />
+								<SessionProvider>
+									<InnerApp />
+								</SessionProvider>
 							</Toaster>
 						</ThemeProvider>
 					</TanStackQueryProvider.Provider>
