@@ -1,0 +1,21 @@
+.ErrorMessage {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-bg-error);
+  color: var(--color-text-error);
+  font-size: var(--font-size-sm);
+}
+
+.FormFields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.ButtonGroup {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+  margin-top: var(--spacing-sm);
+}

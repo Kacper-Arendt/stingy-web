@@ -20,7 +20,7 @@ export function AuthLayout({ children }: { children: React.ReactNode }) {
 
 				<div className={styles.Footer}>
 					<p>
-						© {year} {apiConfig.name} {t("auth_copyright")}
+						© {year} {apiConfig.name} {t("copyright")}
 					</p>
 				</div>
 			</div>

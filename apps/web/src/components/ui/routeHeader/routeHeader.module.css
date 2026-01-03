@@ -1,0 +1,23 @@
+.RouteHeader {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.RouteHeaderTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.RouteHeaderDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+}
+
+.RouteHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-left: auto;
+}

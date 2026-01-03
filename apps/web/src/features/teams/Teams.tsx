@@ -1,5 +1,18 @@
+import RouteHeader from "@/components/ui/routeHeader/RouteHeader";
+import RouteWrapper from "@/components/ui/routeWrapper/RouteWrapper";
+import { useT } from "@/locales/useT";
+import { CreateTeamDialog } from "./components/CreateTeamDialog";
+import TeamsList from "./components/TeamsList";
+
 const Teams = () => {
-	return <div>Teams</div>;
+	const { t } = useT();
+
+	return (
+		<RouteWrapper>
+			<RouteHeader title={t("teams_title")} actions={<CreateTeamDialog />} />
+			<TeamsList />
+		</RouteWrapper>
+	);
 };
 
 export default Teams;

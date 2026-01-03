@@ -49,9 +49,7 @@ export const Login = () => {
 					<SignForm
 						onSubmit={onSubmit}
 						isPending={isPending}
-						submitButtonText={t(
-							isPending ? "login_button_loading" : "login_button",
-						)}
+						submitButtonText={t("login_button")}
 					/>
 				</Card.Content>
 

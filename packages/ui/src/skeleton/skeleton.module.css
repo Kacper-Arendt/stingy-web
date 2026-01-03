@@ -1,0 +1,16 @@
+.Skeleton {
+  display: inline-block;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--border-radius-sm);
+  animation: pulse 1.25s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

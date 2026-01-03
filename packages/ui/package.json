@@ -28,7 +28,10 @@
     "./radio": "./src/radio/Radio.tsx",
     "./select": "./src/select/Select.tsx",
     "./switch": "./src/switch/Switch.tsx",
-    "./tabs": "./src/tabs/Tabs.tsx"
+    "./tabs": "./src/tabs/Tabs.tsx",
+    "./loader": "./src/loader/Loader.tsx",
+    "./skeleton": "./src/skeleton/Skeleton.tsx",
+    "./textarea": "./src/textarea/Textarea.tsx"
   },
   "main": "./dist/toast/index.js",
   "types": "./dist/toast/index.d.ts",

@@ -13,7 +13,6 @@ export interface Team {
 	name: string;
 	description: string;
 	createdAt: string;
-	updatedAt: string;
 	participants: TeamMember[];
 	userRole: TeamRole;
 	permissions?: TeamPermissions;

@@ -54,17 +54,14 @@ const Register = () => {
 		<RouteWrapper>
 			<Card>
 				<Card.Header>
-					<Card.Title>{t("register_new_title")}</Card.Title>
-					<Card.Description>{t("register_new_subtitle")}</Card.Description>
+					<Card.Title>{t("register_title")}</Card.Title>
 				</Card.Header>
 
 				<Card.Content>
 					<SignForm
 						onSubmit={onSubmit}
 						isPending={isPending}
-						submitButtonText={t(
-							isPending ? "register_button_loading" : "register_button",
-						)}
+						submitButtonText={t("register_button")}
 					/>
 				</Card.Content>
 
