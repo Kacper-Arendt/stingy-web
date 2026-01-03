@@ -1,7 +1,7 @@
 import RouteHeader from "@/components/ui/routeHeader/RouteHeader";
 import RouteWrapper from "@/components/ui/routeWrapper/RouteWrapper";
 import { useT } from "@/locales/useT";
-import { CreateTeamDialog } from "./components/CreateTeamDialog";
+import { CreateTeamDialog } from "./components/CreateTeamDialog/CreateTeamDialog";
 import TeamsList from "./components/TeamsList";
 
 const Teams = () => {
