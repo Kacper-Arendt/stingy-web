@@ -1,4 +1,5 @@
 import type { AuthorDto } from "@/types/author";
+import type { Budget } from "./budget";
 
 export interface TeamPermissions {
 	canEditTeam: boolean;
@@ -17,6 +18,7 @@ export interface Team {
 	userRole: TeamRole;
 	permissions?: TeamPermissions;
 	memberCount: number;
+	budgets?: Budget[];
 }
 
 export interface TeamMember {

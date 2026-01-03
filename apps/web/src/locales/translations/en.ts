@@ -115,4 +115,10 @@ export default {
 	copyright: "Copyright",
 	name: "Name",
 	description: "Description",
+	role: "Role",
+	member_count: "Member count",
+	budgets: "Budgets",
+	create_budget: "Create budget",
+	no_budgets: "No budgets",
+	go_to_budget: "Go to budget",
 } as const;

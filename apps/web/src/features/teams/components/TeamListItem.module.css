@@ -1,0 +1,104 @@
+.card {
+	margin-bottom: var(--spacing-lg);
+}
+
+.teamInfo {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+	margin-bottom: var(--spacing-lg);
+}
+
+.infoRow {
+	display: flex;
+	gap: var(--spacing-xs);
+}
+
+.label {
+	font-weight: var(--font-weight-medium);
+}
+
+.budgetsSection {
+	margin-top: var(--spacing-lg);
+}
+
+.budgetsHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: var(--spacing-xs);
+}
+
+.budgetsTitle {
+	font-size: var(--font-size-md);
+	font-weight: var(--font-weight-medium);
+	margin: 0;
+}
+
+.noBudgets {
+	font-size: var(--font-size-sm);
+	color: var(--color-text-light);
+	margin: 0;
+}
+
+.budgetsList {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+}
+
+.budgetTrigger {
+	width: 100%;
+	text-align: left;
+	padding: var(--spacing-xs);
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius-sm);
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.budgetTrigger:hover {
+	background-color: var(--color-bg-secondary);
+}
+
+.budgetHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.budgetNameButton {
+	background: none;
+	border: none;
+	font-weight: var(--font-weight-medium);
+	cursor: pointer;
+	padding: 0;
+	color: inherit;
+	text-decoration: underline;
+	font-size: inherit;
+}
+
+.budgetNameButton:hover {
+	opacity: 0.8;
+}
+
+.budgetContent {
+	padding: var(--spacing-xs);
+	border-top: 1px solid var(--color-border);
+}
+
+.budgetDetails {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xxs);
+	font-size: var(--font-size-sm);
+}
+
+.budgetDetailRow {
+	display: flex;
+	gap: var(--spacing-xs);
+}
+
+.budgetButton {
+	margin-top: var(--spacing-xs);
+}

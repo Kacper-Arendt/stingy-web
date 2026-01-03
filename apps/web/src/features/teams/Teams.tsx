@@ -1,5 +1,4 @@
-import RouteHeader from "@/components/ui/routeHeader/RouteHeader";
-import RouteWrapper from "@/components/ui/routeWrapper/RouteWrapper";
+import { RouteWrapper } from "@/components/ui/routeWrapper/RouteWrapper";
 import { useT } from "@/locales/useT";
 import { CreateTeamDialog } from "./components/CreateTeamDialog/CreateTeamDialog";
 import TeamsList from "./components/TeamsList";
@@ -9,8 +8,13 @@ const Teams = () => {
 
 	return (
 		<RouteWrapper>
-			<RouteHeader title={t("teams_title")} actions={<CreateTeamDialog />} />
-			<TeamsList />
+			<RouteWrapper.Header
+				title={t("teams_title")}
+				actions={<CreateTeamDialog />}
+			/>
+			<RouteWrapper.Content>
+				<TeamsList />
+			</RouteWrapper.Content>
 		</RouteWrapper>
 	);
 };

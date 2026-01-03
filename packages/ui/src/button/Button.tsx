@@ -7,6 +7,8 @@ interface IButton extends React.ComponentProps<"button"> {
 	variant?: "primary" | "secondary" | "danger" | "outline" | "ghost" | "link";
 	size?: "small" | "medium" | "large";
 	render?: React.ReactNode;
+	leftIcon?: React.ReactNode;
+	rightIcon?: React.ReactNode;
 }
 
 const Button = ({
@@ -14,6 +16,9 @@ const Button = ({
 	size = "medium",
 	className,
 	render,
+	leftIcon,
+	rightIcon,
+	children,
 	...props
 }: IButton) => {
 	const variantClass = {
@@ -38,7 +43,13 @@ const Button = ({
 		className,
 	);
 
-	return <BaseButton className={buttonClasses} {...props} />;
+	return (
+		<BaseButton className={buttonClasses} {...props}>
+			{leftIcon && <span className={styles.ButtonLeftIcon}>{leftIcon}</span>}
+			{children}
+			{rightIcon && <span className={styles.ButtonRightIcon}>{rightIcon}</span>}
+		</BaseButton>
+	);
 };
 
 export default Button;

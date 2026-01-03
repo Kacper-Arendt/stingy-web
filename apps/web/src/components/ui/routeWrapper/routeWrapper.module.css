@@ -1,6 +1,45 @@
 .Container {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  height: 100%;
+  min-height: 0;
+}
+
+.Header {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
   padding: var(--spacing-lg);
+}
+
+.Content {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+  padding: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+}
+
+.HeaderTitle {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.RouteHeaderTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.RouteHeaderDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+}
+
+.RouteHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-left: auto;
 }

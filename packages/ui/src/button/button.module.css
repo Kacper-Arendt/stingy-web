@@ -1,4 +1,7 @@
 .Button {
+  --icon-size: 1.2rem;
+  --icon-padding: var(--spacing-xxs);
+
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -158,4 +161,27 @@
   height: 3rem; /* Większa wysokość */
   padding: 0 var(--spacing-lg); /* ~2rem */
   font-size: var(--font-size-lg); /* ~1.125rem */
+}
+
+.ButtonLeftIcon {
+  display: inline-flex;
+  align-items: center;
+
+  padding-right: var(--icon-padding); /* 4px */
+  & svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+}
+
+.ButtonRightIcon {
+  display: inline-flex;
+  align-items: center;
+
+  padding-left: var(--icon-padding); /* 4px */
+
+  & svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
 }
