@@ -1,6 +1,5 @@
 import { Form, FormItem } from "@repo/ui/form";
 import Input from "@repo/ui/input";
-import Textarea from "@repo/ui/textarea";
 import { useToastManager } from "@repo/ui/toast";
 import { FormFields } from "@/components/ui/formFields/FormFields";
 import { FormFooter } from "@/components/ui/formFooter/FormFooter";
@@ -67,7 +66,7 @@ export default function CreateTeamDialogContent() {
 				</FormItem>
 
 				<FormItem name="description" label={t("description")}>
-					<Textarea name="description" maxLength={500} />
+					<Input name="description" maxLength={500} autoComplete="off" />
 				</FormItem>
 
 				<FormFooter

@@ -1,7 +1,7 @@
 import { RouteWrapper } from "@/components/ui/routeWrapper/RouteWrapper";
 import { useT } from "@/locales/useT";
 import { CreateTeamDialog } from "./components/CreateTeamDialog/CreateTeamDialog";
-import TeamsList from "./components/TeamsList";
+import TeamsList from "./components/TeamsList/TeamsList";
 
 const Teams = () => {
 	const { t } = useT();

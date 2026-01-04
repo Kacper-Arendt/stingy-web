@@ -15,6 +15,7 @@
     "./menu": "./src/menu/Menu.tsx",
     "./merge": "./src/utils/merge.ts",
     "./avatar": "./src/avatar/Avatar.tsx",
+    "./badge": "./src/badge/Badge.tsx",
     "./combobox": "./src/combobox/Combobox.tsx",
     "./autocomplete": "./src/autocomplete/Autocomplete.tsx",
     "./checkbox": "./src/checkbox/Checkbox.tsx",

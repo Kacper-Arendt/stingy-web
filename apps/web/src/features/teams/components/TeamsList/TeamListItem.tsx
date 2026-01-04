@@ -1,18 +1,17 @@
 import Button from "@repo/ui/button";
 import Card from "@repo/ui/card";
 import Collapsible from "@repo/ui/collapsible";
-import { Plus } from "lucide-react";
+import { Calendar, Plus, Users } from "lucide-react";
 import { useState } from "react";
+import TeamBadge from "@/features/teams/components/shared/TeamBadge";
+import type { Team } from "@/features/teams/types/team";
 import { useDate } from "@/hooks/useDate";
 import { useT } from "@/locales/useT";
-import { useRoleTranslation } from "../hooks/useRoleTranslation";
-import type { Team } from "../types/team";
 import styles from "./TeamListItem.module.css";
 
 const TeamListItem = ({ team }: { team: Team }) => {
 	const { t } = useT();
 	const { defaultFormatDate } = useDate();
-	const getRoleTranslation = useRoleTranslation();
 	const [expandedBudgets, setExpandedBudgets] = useState<Set<string>>(
 		new Set(),
 	);
@@ -44,28 +43,26 @@ const TeamListItem = ({ team }: { team: Team }) => {
 	return (
 		<Card className={styles.card}>
 			<Card.Header>
-				<Card.Title>{team.name}</Card.Title>
+				<Card.Title className={styles.titleWithBadge}>
+					{team.name}
+					<TeamBadge role={team.userRole} />
+				</Card.Title>
+				<div className={styles.teamMeta}>
+					<div className={styles.memberCount} title={t("member_count")}>
+						<Users size={16} aria-label={t("member_count")} />
+						<span>{team.memberCount}</span>
+					</div>
+					<div className={styles.createdDate} title={t("created")}>
+						<Calendar size={16} aria-label={t("created")} />
+						<span>{defaultFormatDate(new Date(team.createdAt))}</span>
+					</div>
+				</div>
 				{team.description && (
 					<Card.Description>{team.description}</Card.Description>
 				)}
 			</Card.Header>
 			<Card.Content>
-				<div className={styles.teamInfo}>
-					<div className={styles.infoRow}>
-						<span className={styles.label}>{t("role")}: </span>
-						<span>{getRoleTranslation(team.userRole)}</span>
-					</div>
-					<div className={styles.infoRow}>
-						<span className={styles.label}>{t("member_count")}: </span>
-						<span>{team.memberCount}</span>
-					</div>
-					<div className={styles.infoRow}>
-						<span className={styles.label}>{t("created")}: </span>
-						<span>{defaultFormatDate(new Date(team.createdAt))}</span>
-					</div>
-				</div>
-
-				<div className={styles.budgetsSection}>
+				<div>
 					<div className={styles.budgetsHeader}>
 						<h3 className={styles.budgetsTitle}>{t("budgets")}</h3>
 						<Button
