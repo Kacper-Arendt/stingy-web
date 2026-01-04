@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Teams from "@/features/teams/Teams";
+import Dashboard from "@/features/dashboard/Dashboard";
 
 export const Route = createFileRoute("/_system/")({
-	component: Teams,
+	component: Dashboard,
 });

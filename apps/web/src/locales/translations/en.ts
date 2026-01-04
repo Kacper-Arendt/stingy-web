@@ -61,6 +61,7 @@ export default {
 	login_error_invalid_credentials:
 		"Invalid email or password. Please try again.",
 
+	dashboard_title: "Dashboard",
 	teams_title: "Teams",
 	teams_create_team: "Create Team",
 	teams_create_description: "Create a new team to collaborate with your family",
