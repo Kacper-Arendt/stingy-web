@@ -1,0 +1,67 @@
+# Cursor Rules for stingy-web
+
+## Project Structure
+
+- Turborepo monorepo with pnpm workspaces
+- Main app: `apps/web` (React + TypeScript + Vite + TanStack Router + TanStack Query)
+- UI package: `packages/ui` (shared components)
+- Feature-based architecture: `apps/web/src/features/{feature}/` with `api/`, `components/`, `hooks/`, `schemas/`, `types/`
+
+## Code Style
+
+- **Formatter**: Biome with tabs for indentation, double quotes
+- **TypeScript**: Strict mode, no `any`, ES2022 target
+- **File naming**: PascalCase for components, camelCase for hooks/utils, `ComponentName.module.css` for styles
+- **CSS Modules**: PascalCase class names (e.g., `.Card`, `.CardHeader`)
+
+## Patterns
+
+### Components
+
+- Default export for pages/routes, named export for reusable components
+- Use CSS Modules: `import styles from "./component.module.css"`
+- Use `@/` alias for `apps/web/src/`
+- Use `@repo/ui/{component}` for UI package imports
+
+### Forms
+
+- Use `Form` and `FormItem` from `@repo/ui/form`
+- Use `useFormErrors` hook for validation
+- Validate with Zod schemas (export as factory functions)
+- Use `useToastManager` for notifications
+
+### API & Data Fetching
+
+- API functions in `features/{feature}/api/`
+- Use `api` utility from `@/utils/api.ts`
+- TanStack Query hooks in `features/{feature}/hooks/`
+- Query keys in `apps/web/src/integrations/tanstack-query/queryKeys.ts`
+- Always invalidate queries after mutations
+
+### Zod Schemas
+
+- Export as factory functions: `export const Schema = () => z.object({...})`
+- Export inferred types: `export type SchemaType = z.infer<ReturnType<typeof Schema>>`
+
+### Internationalization
+
+- Use `useT()` hook from `@/locales/useT`
+- Never hardcode strings, always use translation keys
+
+## Rules
+
+✅ Use TypeScript strictly, CSS Modules, Zod validation, TanStack Query
+✅ Follow feature-based folder structure
+✅ Use tabs (not spaces), double quotes, PascalCase CSS classes
+✅ Invalidate queries after mutations
+✅ Export schemas as factory functions
+❌ No inline styles, no `any` types, no hardcoded strings
+❌ Don't edit `routeTree.gen.ts`, don't use spaces for indentation
+
+## Commands
+
+- `pnpm dev` - Start development
+- `pnpm build` - Build all packages
+- `pnpm check-types` - Type check
+- `pnpm format` - Format code
+- `pnpm lint` - Lint code

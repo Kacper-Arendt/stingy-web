@@ -62,6 +62,7 @@
 
 .Positioner {
   outline: 0;
+  z-index: var(--z-index-dropdown);
 }
 
 .Popup {

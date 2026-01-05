@@ -123,8 +123,26 @@
   --elevation-1: 0 1px 3px oklch(0% 0 0 / 0.12);
   --elevation-2: 0 3px 6px oklch(0% 0 0 / 0.16);
 
+  /* --- Z-index layers --- */
+  /* Base layer for progress bars, meters, etc. */
+  --z-index-base: 1;
+
+  /* Dialog layer */
+  --z-index-dialog-backdrop: 99;
+  --z-index-dialog-popup: 100;
+
+  /* Dropdown layer (select, combobox, autocomplete, menu) */
+  --z-index-dropdown: 101;
+
+  /* Toast layer */
+  --z-index-toast-viewport: 102;
+  --z-index-toast-base: 1000;
+
+  /* Navigation menu layer */
+  --z-index-navigation-menu: 1000;
+
   /* fix the dark mode */
-  @media (prefers-color-scheme: dark2) { 
+  @media (prefers-color-scheme: dark2) {
     /* Lightnesses reversed */
     --color-primary-default: oklch(
       calc(var(--primary-l-base) + 10%) var(--primary-chroma-oklch)

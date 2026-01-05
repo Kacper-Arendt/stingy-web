@@ -20,7 +20,6 @@ const Root = (props: React.ComponentProps<typeof BaseCombobox.Root>) => {
 	return <BaseCombobox.Root {...props} />;
 };
 
-// Input component
 interface InputProps extends React.ComponentProps<typeof BaseCombobox.Input> {
 	className?: string;
 }
@@ -31,7 +30,6 @@ const Input = ({ className, ...props }: InputProps) => {
 	);
 };
 
-// Clear component
 interface ClearProps extends React.ComponentProps<typeof BaseCombobox.Clear> {
 	className?: string;
 }
@@ -44,7 +42,6 @@ const Clear = ({ className, children, ...props }: ClearProps) => {
 	);
 };
 
-// Trigger component
 interface TriggerProps
 	extends React.ComponentProps<typeof BaseCombobox.Trigger> {
 	className?: string;
@@ -61,10 +58,8 @@ const Trigger = ({ className, children, ...props }: TriggerProps) => {
 	);
 };
 
-// Portal component
 const Portal = BaseCombobox.Portal;
 
-// Positioner component
 interface PositionerProps
 	extends React.ComponentProps<typeof BaseCombobox.Positioner> {
 	className?: string;
@@ -79,7 +74,6 @@ const Positioner = ({ className, ...props }: PositionerProps) => {
 	);
 };
 
-// Popup component
 interface PopupProps extends React.ComponentProps<typeof BaseCombobox.Popup> {
 	className?: string;
 }
@@ -90,7 +84,6 @@ const Popup = ({ className, ...props }: PopupProps) => {
 	);
 };
 
-// Empty component
 interface EmptyProps extends React.ComponentProps<typeof BaseCombobox.Empty> {
 	className?: string;
 }
@@ -101,7 +94,6 @@ const Empty = ({ className, ...props }: EmptyProps) => {
 	);
 };
 
-// List component
 interface ListProps extends React.ComponentProps<typeof BaseCombobox.List> {
 	className?: string;
 }
@@ -112,7 +104,6 @@ const List = ({ className, ...props }: ListProps) => {
 	);
 };
 
-// Item component
 interface ItemProps extends React.ComponentProps<typeof BaseCombobox.Item> {
 	className?: string;
 }
@@ -123,7 +114,6 @@ const Item = ({ className, ...props }: ItemProps) => {
 	);
 };
 
-// ItemIndicator component
 interface ItemIndicatorProps
 	extends React.ComponentProps<typeof BaseCombobox.ItemIndicator> {
 	className?: string;
@@ -144,7 +134,6 @@ const ItemIndicator = ({
 	);
 };
 
-// Label wrapper component (helper component)
 interface LabelProps extends React.HTMLAttributes<HTMLDivElement> {
 	className?: string;
 }
@@ -153,7 +142,6 @@ const Label = ({ className, ...props }: LabelProps) => {
 	return <div className={merge(styles.Label, className)} {...props} />;
 };
 
-// InputWrapper component (helper component)
 interface InputWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
 	className?: string;
 }
@@ -162,7 +150,6 @@ const InputWrapper = ({ className, ...props }: InputWrapperProps) => {
 	return <div className={merge(styles.InputWrapper, className)} {...props} />;
 };
 
-// ActionButtons component (helper component)
 interface ActionButtonsProps extends React.HTMLAttributes<HTMLDivElement> {
 	className?: string;
 }
@@ -171,7 +158,6 @@ const ActionButtons = ({ className, ...props }: ActionButtonsProps) => {
 	return <div className={merge(styles.ActionButtons, className)} {...props} />;
 };
 
-// ItemText component (helper component)
 interface ItemTextProps extends React.HTMLAttributes<HTMLDivElement> {
 	className?: string;
 }
@@ -180,7 +166,6 @@ const ItemText = ({ className, ...props }: ItemTextProps) => {
 	return <div className={merge(styles.ItemText, className)} {...props} />;
 };
 
-// Export all components
 const Combobox = {
 	Root,
 	Input,

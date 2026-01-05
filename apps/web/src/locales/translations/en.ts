@@ -61,7 +61,7 @@ export default {
 	login_error_invalid_credentials:
 		"Invalid email or password. Please try again.",
 
-	dashboard_title: "Dashboard",
+	budgets_title: "Budgets",
 	teams_title: "Teams",
 	teams_create_team: "Create Team",
 	teams_create_description: "Create a new team to collaborate with your family",
@@ -122,4 +122,9 @@ export default {
 	create_budget: "Create budget",
 	no_budgets: "No budgets",
 	go_to_budget: "Go to budget",
+	select_team: "Select team",
+	no_results_found: "No results found",
+	no_teams_found: "No teams found.",
+	select_team_description: "Select a team to create a budget for.",
+	team: "Team",
 } as const;

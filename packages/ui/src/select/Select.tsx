@@ -16,7 +16,6 @@ const Root = (props: React.ComponentProps<typeof BaseSelect.Root>) => {
 	return <BaseSelect.Root {...props} />;
 };
 
-// Trigger component
 interface TriggerProps extends React.ComponentProps<typeof BaseSelect.Trigger> {
 	className?: string;
 }
@@ -25,17 +24,24 @@ const Trigger = ({ className, children, ...props }: TriggerProps) => {
 	return (
 		<BaseSelect.Trigger className={merge(styles.Trigger, className)} {...props}>
 			{children}
-			<span className={styles.Icon}>
-				<ChevronDownIcon />
-			</span>
 		</BaseSelect.Trigger>
 	);
 };
 
-// Portal component
+interface IconProps extends React.ComponentProps<typeof BaseSelect.Icon> {
+	className?: string;
+}
+
+const Icon = ({ className, ...props }: IconProps) => {
+	return (
+		<BaseSelect.Icon className={merge(styles.Icon, className)} {...props}>
+			<ChevronDownIcon />
+		</BaseSelect.Icon>
+	);
+};
+
 const Portal = BaseSelect.Portal;
 
-// Positioner component
 interface PositionerProps
 	extends React.ComponentProps<typeof BaseSelect.Positioner> {
 	className?: string;
@@ -50,7 +56,6 @@ const Positioner = ({ className, ...props }: PositionerProps) => {
 	);
 };
 
-// Popup component
 interface PopupProps extends React.ComponentProps<typeof BaseSelect.Popup> {
 	className?: string;
 }
@@ -61,7 +66,6 @@ const Popup = ({ className, ...props }: PopupProps) => {
 	);
 };
 
-// List component
 interface ListProps extends React.ComponentProps<typeof BaseSelect.List> {
 	className?: string;
 }
@@ -72,7 +76,6 @@ const List = ({ className, ...props }: ListProps) => {
 	);
 };
 
-// Item component
 interface ItemProps extends React.ComponentProps<typeof BaseSelect.Item> {
 	className?: string;
 }
@@ -83,7 +86,6 @@ const Item = ({ className, ...props }: ItemProps) => {
 	);
 };
 
-// ItemIndicator component
 interface ItemIndicatorProps
 	extends React.ComponentProps<typeof BaseSelect.ItemIndicator> {
 	className?: string;
@@ -104,7 +106,6 @@ const ItemIndicator = ({
 	);
 };
 
-// Value component
 interface ValueProps extends React.ComponentProps<typeof BaseSelect.Value> {
 	className?: string;
 }
@@ -115,10 +116,6 @@ const Value = ({ className, ...props }: ValueProps) => {
 	);
 };
 
-// ValueText alias for Value (for convenience)
-const ValueText = Value;
-
-// Label wrapper component (helper component)
 interface LabelProps extends React.HTMLAttributes<HTMLDivElement> {
 	className?: string;
 }
@@ -127,10 +124,18 @@ const Label = ({ className, ...props }: LabelProps) => {
 	return <div className={merge(styles.Label, className)} {...props} />;
 };
 
-// Export all components
+interface ItemTextProps extends React.HTMLAttributes<HTMLDivElement> {
+	className?: string;
+}
+
+const ItemText = ({ className, ...props }: ItemTextProps) => {
+	return <div className={merge(styles.Value, className)} {...props} />;
+};
+
 const Select = {
 	Root,
 	Trigger,
+	Icon,
 	Portal,
 	Positioner,
 	Popup,
@@ -138,9 +143,8 @@ const Select = {
 	Item,
 	ItemIndicator,
 	Value,
-	ValueText, // Alias for Value
-	// Helper components
 	Label,
+	ItemText,
 };
 
 export default Select;
