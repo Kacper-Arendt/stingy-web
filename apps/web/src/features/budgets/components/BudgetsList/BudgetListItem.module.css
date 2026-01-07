@@ -1,0 +1,22 @@
+.card {
+}
+
+.budgetMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.memberCount,
+.createdDate {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}

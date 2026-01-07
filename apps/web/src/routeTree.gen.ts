@@ -14,6 +14,7 @@ import { Route as SystemRouteRouteImport } from './routes/_system/route'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as SystemIndexRouteImport } from './routes/_system/index'
 import { Route as AuthRegisterRouteImport } from './routes/auth/register'
+import { Route as SystemBudgetsBudgetIdRouteImport } from './routes/_system/budgets/$budgetId'
 
 const AuthRouteRoute = AuthRouteRouteImport.update({
   id: '/auth',
@@ -39,17 +40,24 @@ const AuthRegisterRoute = AuthRegisterRouteImport.update({
   path: '/register',
   getParentRoute: () => AuthRouteRoute,
 } as any)
+const SystemBudgetsBudgetIdRoute = SystemBudgetsBudgetIdRouteImport.update({
+  id: '/budgets/$budgetId',
+  path: '/budgets/$budgetId',
+  getParentRoute: () => SystemRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/auth': typeof AuthRouteRouteWithChildren
   '/auth/register': typeof AuthRegisterRoute
   '/': typeof SystemIndexRoute
   '/auth/': typeof AuthIndexRoute
+  '/budgets/$budgetId': typeof SystemBudgetsBudgetIdRoute
 }
 export interface FileRoutesByTo {
   '/auth/register': typeof AuthRegisterRoute
   '/': typeof SystemIndexRoute
   '/auth': typeof AuthIndexRoute
+  '/budgets/$budgetId': typeof SystemBudgetsBudgetIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -58,12 +66,13 @@ export interface FileRoutesById {
   '/auth/register': typeof AuthRegisterRoute
   '/_system/': typeof SystemIndexRoute
   '/auth/': typeof AuthIndexRoute
+  '/_system/budgets/$budgetId': typeof SystemBudgetsBudgetIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/auth' | '/auth/register' | '/' | '/auth/'
+  fullPaths: '/auth' | '/auth/register' | '/' | '/auth/' | '/budgets/$budgetId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/auth/register' | '/' | '/auth'
+  to: '/auth/register' | '/' | '/auth' | '/budgets/$budgetId'
   id:
     | '__root__'
     | '/_system'
@@ -71,6 +80,7 @@ export interface FileRouteTypes {
     | '/auth/register'
     | '/_system/'
     | '/auth/'
+    | '/_system/budgets/$budgetId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -115,15 +125,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRegisterRouteImport
       parentRoute: typeof AuthRouteRoute
     }
+    '/_system/budgets/$budgetId': {
+      id: '/_system/budgets/$budgetId'
+      path: '/budgets/$budgetId'
+      fullPath: '/budgets/$budgetId'
+      preLoaderRoute: typeof SystemBudgetsBudgetIdRouteImport
+      parentRoute: typeof SystemRouteRoute
+    }
   }
 }
 
 interface SystemRouteRouteChildren {
   SystemIndexRoute: typeof SystemIndexRoute
+  SystemBudgetsBudgetIdRoute: typeof SystemBudgetsBudgetIdRoute
 }
 
 const SystemRouteRouteChildren: SystemRouteRouteChildren = {
   SystemIndexRoute: SystemIndexRoute,
+  SystemBudgetsBudgetIdRoute: SystemBudgetsBudgetIdRoute,
 }
 
 const SystemRouteRouteWithChildren = SystemRouteRoute._addFileChildren(

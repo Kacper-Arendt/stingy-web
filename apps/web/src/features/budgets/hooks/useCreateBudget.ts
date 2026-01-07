@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { teamKeys } from "@/integrations/tanstack-query/queryKeys";
+import { budgetKeys, teamKeys } from "@/integrations/tanstack-query/queryKeys";
 import { createBudget } from "../api/budgets";
 import type { CreateBudgetFormData } from "../schemas/budget.schema";
 
@@ -14,13 +14,12 @@ export function useCreateBudget({
 
 	return useMutation({
 		mutationFn: (data: CreateBudgetFormData) => createBudget(data),
-		onSuccess: (newBudget) => {
+		onSuccess: (_newBudget, variables) => {
 			queryClient.invalidateQueries({
-				queryKey: teamKeys.lists(),
+				queryKey: budgetKeys.list(),
 			});
-
 			queryClient.invalidateQueries({
-				queryKey: teamKeys.detail(newBudget.teamId),
+				queryKey: teamKeys.detail(variables.teamId),
 			});
 
 			onSuccess?.();

@@ -1,5 +1,5 @@
+import type { Budget } from "@/features/budgets/types/budget";
 import type { AuthorDto } from "@/types/author";
-import type { Budget } from "./budget";
 
 export interface TeamPermissions {
 	canEditTeam: boolean;

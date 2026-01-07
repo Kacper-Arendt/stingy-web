@@ -1,5 +1,6 @@
 import { RouteWrapper } from "@/components/ui/routeWrapper/RouteWrapper";
 import { useT } from "@/locales/useT";
+import BudgetsList from "./components/BudgetsList/BudgetsList";
 import { CreateBudgetDialog } from "./components/CreateBudgetDialog/CreateBudgetDialog";
 
 const Budgets = () => {
@@ -11,7 +12,7 @@ const Budgets = () => {
 				actions={<CreateBudgetDialog />}
 			/>
 			<RouteWrapper.Content>
-				<div>Budgets</div>
+				<BudgetsList />
 			</RouteWrapper.Content>
 		</RouteWrapper>
 	);

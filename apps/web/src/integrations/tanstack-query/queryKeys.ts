@@ -55,11 +55,23 @@ export const onboardingKeys = {
 	statuses: () => [...onboardingKeys.all(), "statuses"] as const,
 };
 
+export const budgetKeys = {
+	all: () => ["budgets"] as const,
+	lists: () => [...budgetKeys.all(), "list"] as const,
+	list: (filters?: Record<string, unknown>) =>
+		[...budgetKeys.lists(), { filters }] as const,
+	details: () => [...budgetKeys.all(), "detail"] as const,
+	detail: (budgetId: string) => [...budgetKeys.details(), budgetId] as const,
+	members: (budgetId: string) =>
+		[...budgetKeys.detail(budgetId), "members"] as const,
+};
+
 export const queryKeys = {
 	teams: teamKeys,
 	retros: retroKeys,
 	profiles: profileKeys,
 	onboarding: onboardingKeys,
+	budgets: budgetKeys,
 } as const;
 
 // Usage:
