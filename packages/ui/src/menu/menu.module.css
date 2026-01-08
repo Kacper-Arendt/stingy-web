@@ -75,6 +75,7 @@
   padding-left: 1rem;
   padding-right: 2rem;
   display: flex;
+  gap: var(--spacing-xs);
   font-size: var(--font-size-sm);
   line-height: 1rem;
 

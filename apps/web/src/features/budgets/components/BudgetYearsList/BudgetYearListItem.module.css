@@ -1,0 +1,28 @@
+.card {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: var(--spacing-md);
+}
+
+.title {
+  margin: 0;
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.modalActions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+  margin-top: var(--spacing-sm);
+}

@@ -10,3 +10,16 @@ export const CreateBudgetSchema = () =>
 export type CreateBudgetFormData = z.infer<
 	ReturnType<typeof CreateBudgetSchema>
 >;
+
+export const CreateYearSchema = z.object({
+	value: z.number().int(),
+	budgetId: z.string().min(1),
+});
+
+export type CreateYearFormData = z.infer<typeof CreateYearSchema>;
+
+export const UpdateYearSchema = z.object({
+	value: z.number().int().optional(),
+});
+
+export type UpdateYearFormData = z.infer<typeof UpdateYearSchema>;

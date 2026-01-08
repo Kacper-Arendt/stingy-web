@@ -1,0 +1,110 @@
+.YearPicker {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.CarouselContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  width: 100%;
+}
+
+.Carousel {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: var(--spacing-xxs);
+  flex: 1;
+  scroll-padding-inline: var(--spacing-md);
+  padding: var(--spacing-md) 0;
+
+  &::webkit-scrollbar {
+    display: none;
+  }
+}
+
+.YearPill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  padding: var(--spacing-xs);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius-md);
+  border: 2px solid transparent;
+  background-color: transparent;
+  color: var(--color-text-default);
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    color 0.15s ease-in-out;
+  user-select: none;
+  outline: none;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: var(--color-bg-default);
+    border-color: var(--color-primary-default);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--semantic-input-focus-border);
+  }
+}
+
+.YearPillSelected {
+  border-color: var(--color-primary-default);
+
+  &:hover {
+    border-color: var(--color-primary-dark);
+  }
+}
+
+.ScrollButton {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background-color: transparent;
+  color: var(--color-text-default);
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    opacity 0.15s ease-in-out;
+  flex-shrink: 0;
+  outline: none;
+
+  &:hover {
+    background-color: var(--color-bg-default);
+    border-color: var(--color-primary-default);
+    color: var(--color-primary-default);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--semantic-input-focus-border);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.ScrollButton svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}

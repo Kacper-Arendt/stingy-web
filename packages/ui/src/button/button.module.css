@@ -4,6 +4,7 @@
 
   box-sizing: border-box;
   display: flex;
+  gap: var(--spacing-xs);
   align-items: center;
   justify-content: center;
 
@@ -167,7 +168,6 @@
   display: inline-flex;
   align-items: center;
 
-  padding-right: var(--icon-padding); /* 4px */
   & svg {
     width: var(--icon-size);
     height: var(--icon-size);
@@ -177,8 +177,6 @@
 .ButtonRightIcon {
   display: inline-flex;
   align-items: center;
-
-  padding-left: var(--icon-padding); /* 4px */
 
   & svg {
     width: var(--icon-size);

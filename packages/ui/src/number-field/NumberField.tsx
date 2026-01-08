@@ -90,12 +90,27 @@ const ScrubArea = ({ className, ...props }: ScrubAreaProps) => {
 	);
 };
 
+interface GroupProps
+	extends React.ComponentProps<typeof BaseNumberField.Group> {
+	className?: string;
+}
+
+const Group = ({ className, ...props }: GroupProps) => {
+	return (
+		<BaseNumberField.Group
+			className={merge(styles.Group, className)}
+			{...props}
+		/>
+	);
+};
+
 const NumberField = {
 	Root,
 	Input,
 	Increment,
 	Decrement,
 	ScrubArea,
+	Group,
 };
 
 export default NumberField;

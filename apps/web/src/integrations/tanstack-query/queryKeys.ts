@@ -64,6 +64,12 @@ export const budgetKeys = {
 	detail: (budgetId: string) => [...budgetKeys.details(), budgetId] as const,
 	members: (budgetId: string) =>
 		[...budgetKeys.detail(budgetId), "members"] as const,
+	years: (budgetId: string) =>
+		[...budgetKeys.detail(budgetId), "years"] as const,
+	year: (budgetId: string, yearId: string) =>
+		[...budgetKeys.years(budgetId), yearId] as const,
+	yearByValue: (budgetId: string, value: number) =>
+		[...budgetKeys.years(budgetId), "value", value] as const,
 };
 
 export const queryKeys = {

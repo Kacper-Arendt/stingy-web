@@ -17,3 +17,10 @@
   line-height: normal;
   color: var(--color-error-text);
 }
+
+.Description {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--color-text-muted);
+}

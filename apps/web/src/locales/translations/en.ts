@@ -127,4 +127,27 @@ export default {
 	no_teams_found: "No teams found.",
 	select_team_description: "Select a team to create a budget for.",
 	team: "Team",
+	add_year: "Add Year",
+	year: "Year",
+	budget_years_title: "Budget Years",
+	active: "Active",
+	archived: "Archived",
+	add: "Add",
+	prev: "Previous",
+	next: "Next",
+	archive: "Archive",
+	archiving: "Archiving",
+	deleting: "Deleting",
+	budget_year_delete_confirm_title: "Delete Budget Year",
+	budget_year_delete_confirm_description:
+		"Are you sure you want to delete this budget year? This action cannot be undone.",
+	budget_year_delete_success: "Budget year deleted successfully",
+	budget_year_delete_error: "Failed to delete budget year",
+	budget_year_archive_confirm_title: "Archive Budget Year",
+	budget_year_archive_confirm_description:
+		"Are you sure you want to archive this budget year? You can restore it later.",
+	budget_year_archive_success: "Budget year archived successfully",
+	budget_year_archive_error: "Failed to archive budget year",
+	create_year_removed_years_description:
+		"Some years have been removed from the list as they already exist in this budget.",
 } as const;

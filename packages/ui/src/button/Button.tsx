@@ -11,6 +11,21 @@ interface IButton extends React.ComponentProps<"button"> {
 	rightIcon?: React.ReactNode;
 }
 
+const variantClass = {
+	primary: styles.ButtonPrimary,
+	secondary: styles.ButtonSecondary,
+	danger: styles.ButtonDanger,
+	outline: styles.ButtonOutline,
+	ghost: styles.ButtonGhost,
+	link: styles.ButtonLink,
+};
+
+const sizeClass = {
+	small: styles.ButtonSm,
+	medium: styles.ButtonMd,
+	large: styles.ButtonLg,
+};
+
 const Button = ({
 	variant = "primary",
 	size = "medium",
@@ -21,25 +36,10 @@ const Button = ({
 	children,
 	...props
 }: IButton) => {
-	const variantClass = {
-		primary: styles.ButtonPrimary,
-		secondary: styles.ButtonSecondary,
-		danger: styles.ButtonDanger,
-		outline: styles.ButtonOutline,
-		ghost: styles.ButtonGhost,
-		link: styles.ButtonLink,
-	}[variant];
-
-	const sizeClass = {
-		small: styles.ButtonSm,
-		medium: styles.ButtonMd,
-		large: styles.ButtonLg,
-	}[size];
-
 	const buttonClasses = merge(
 		styles.Button,
-		variantClass,
-		sizeClass,
+		variantClass[variant],
+		sizeClass[size],
 		className,
 	);
 

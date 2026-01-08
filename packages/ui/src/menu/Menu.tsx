@@ -36,9 +36,15 @@ interface IMenuPositioner
 	className?: string;
 }
 
-const MenuPositioner = ({ children, className, ...props }: IMenuPositioner) => (
+const MenuPositioner = ({
+	children,
+	className,
+	sideOffset = 8,
+	...props
+}: IMenuPositioner) => (
 	<BaseMenu.Positioner
 		className={merge(styles.Positioner, className)}
+		sideOffset={sideOffset}
 		{...props}
 	>
 		{children}

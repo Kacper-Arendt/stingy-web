@@ -6,12 +6,23 @@ interface IFormItem {
 	className?: string;
 	children: React.ReactNode;
 	name: string;
+	description?: string;
 }
 
-export const FormItem = ({ name, children, label }: IFormItem) => (
+export const FormItem: React.FC<IFormItem> = ({
+	name,
+	children,
+	label,
+	description,
+}) => (
 	<Field.Root name={name} className={styles.Field}>
 		{label && <Field.Label className={styles.Label}>{label}</Field.Label>}
 		{children}
 		<Field.Error className={styles.Error} />
+		{description && (
+			<Field.Description className={styles.Description}>
+				{description}
+			</Field.Description>
+		)}
 	</Field.Root>
 );
